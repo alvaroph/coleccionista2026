@@ -12,7 +12,12 @@
       <p class="category">{{ itemInfo.strCategory }}</p>
       <p class="country">{{ itemInfo.strArea }}</p>
     </div>
+
+      <div class="actions">
+          <slot name="actions"></slot>
+    </div>
   </div>
+  
 </template>
 
 <script setup>
@@ -25,6 +30,10 @@ defineProps({
 </script>
 
 <style scoped>
+
+.actions {
+  padding: 0 18px 18px;
+}
 .recipe-card {
   background: white;
   border-radius: 12px;

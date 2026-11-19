@@ -48,7 +48,9 @@ export function createCommunicationManager() {
    const response = await api.get('/lookup.php', {
       params: { i: id }
     })
-    return response.data.meals ?? []
+
+    return response.data.meals?.[0] ?? null
+
   }
 
   return {

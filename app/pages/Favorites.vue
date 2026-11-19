@@ -1,10 +1,21 @@
 <template>
     <div>
-        PAgina de facvorits
+        PAgina de favorits
+          <div v-for="item in favoritesStore.favorites" :key="item.idMeal"  class="card-link">
+                
+                    <itemCard :itemInfo="item" >
+                      <template #actions>
+                           <button @click="favoritesStore.removeFavorite(item.idMeal)">Eliminar de Favorit</button>
+                      </template>
+                    </itemCard>
+                </div>
     </div>
 </template>
 
 <script setup>
+
+const favoritesStore = useFavoritesStore()
+
 useHead({
   title: 'Favorits',
   meta: [
